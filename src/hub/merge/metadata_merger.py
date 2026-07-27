@@ -130,6 +130,11 @@ class MetadataMerger:
                         )
 
 
+                elif rule == "review":
+
+                    decision["requires_review"] = True
+
+
 
                 conflicts.append(
                     conflict
