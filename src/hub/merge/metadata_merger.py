@@ -11,6 +11,11 @@ from src.hub.rules.metadata_rules import (
 )
 
 
+from src.hub.rules.provider_priority import (
+    ProviderPriority
+)
+
+
 
 class MetadataMerger:
     """
@@ -24,6 +29,8 @@ class MetadataMerger:
     ):
 
         self.rules = MetadataRules()
+
+        self.priority = ProviderPriority()
 
 
 
@@ -97,16 +104,40 @@ class MetadataMerger:
 
                 conflict = result["conflict"]
 
+                decision = {
+                    "field": field,
+                    "action": "conflict",
+                    "rule": rule
+                }
+
+
+                if rule == "priority":
+
+                    winner = conflict.suggest_winner(
+                        self.priority
+                    )
+
+
+                    decision["suggested_source"] = (
+                        winner
+                    )
+
+
+                    if winner:
+
+                        decision["suggested_value"] = (
+                            conflict.values[winner]
+                        )
+
+
+
                 conflicts.append(
                     conflict
                 )
 
+
                 decisions.append(
-                    {
-                        "field": field,
-                        "action": "conflict",
-                        "rule": rule
-                    }
+                    decision
                 )
 
 
