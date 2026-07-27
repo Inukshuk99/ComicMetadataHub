@@ -59,3 +59,33 @@ class MetadataConflict:
             self.selected_source = source
 
             self.resolved = True
+
+
+
+    def suggest_winner(
+        self,
+        priority
+    ):
+        """
+        Suggest highest priority source.
+        """
+
+        winner = None
+
+        highest = -1
+
+
+        for source in self.values:
+
+            value = priority.get_priority(
+                source
+            )
+
+            if value > highest:
+
+                highest = value
+
+                winner = source
+
+
+        return winner

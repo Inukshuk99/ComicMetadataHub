@@ -11,11 +11,23 @@ from src.hub.merge.conflict import (
 )
 
 
+from src.hub.rules.provider_priority import (
+    ProviderPriority
+)
+
+
 
 class MetadataRules:
     """
     Applies metadata comparison rules.
     """
+
+
+    def __init__(
+        self
+    ):
+
+        self.priority = ProviderPriority()
 
 
 
@@ -71,5 +83,8 @@ class MetadataRules:
 
         return {
             "action": "conflict",
-            "conflict": conflict
+            "conflict": conflict,
+            "source_priority": self.priority.get_priority(
+                source
+            )
         }
