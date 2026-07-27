@@ -39,16 +39,34 @@ def test_identity_resolver():
 
 
     source = {
+
         "title": "Batman",
+
         "issue": "1",
-        "identifier": "CV-12345"
+
+        "identifiers": {
+
+            "comicvine": "CV-12345"
+
+        }
+
     }
 
 
     candidate = {
+
         "title": "Batman",
+
         "issue": "1",
-        "identifier": "CV-12345"
+
+        "identifiers": {
+
+            "comicvine": "CV-12345",
+
+            "gcd": "GCD-98765"
+
+        }
+
     }
 
 
@@ -62,8 +80,9 @@ def test_identity_resolver():
 
     assert result.score >= 100
 
+
     assert (
-        "Identifier match"
+        "Comicvine identifier match"
         in result.reasons
     )
 

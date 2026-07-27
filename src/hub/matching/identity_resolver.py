@@ -67,18 +67,50 @@ class IdentityResolver:
 
 
 
+        source_ids = source.get(
+            "identifiers",
+            {}
+        )
+
+
+        candidate_ids = candidate.get(
+            "identifiers",
+            {}
+        )
+
+
+
+        for provider, identifier in source_ids.items():
+
+            if (
+                identifier
+                and
+                candidate_ids.get(provider)
+                ==
+                identifier
+            ):
+
+                score += 120
+
+                reasons.append(
+                    f"{provider.title()} identifier match"
+                )
+
+
+
         if (
-            source.get("identifier")
-            and
-            source.get("identifier")
-            ==
-            candidate.get("identifier")
+            len(
+                set(source_ids.keys())
+                &
+                set(candidate_ids.keys())
+            )
+            > 1
         ):
 
-            score += 100
+            score += 50
 
             reasons.append(
-                "Identifier match"
+                "Provider agreement"
             )
 
 
