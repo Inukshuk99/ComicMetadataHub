@@ -241,3 +241,67 @@ Fix matching architecture while preserving:
 - conflict handling
 - source attribution
 
+---
+
+# Current Development Checkpoint
+
+Checkpoint:
+
+matching-architecture-stable
+
+Completed:
+
+- Plugin integration architecture documented
+- Candidate discovery separated from matching decisions
+- Candidate normalization layer added
+- Provider import pipeline aligned
+- Matching tests updated to reflect architecture
+
+Current engine flow:
+
+Comic Application
+
+    |
+
+Integration Layer
+
+    |
+
+Provider Import Pipeline
+
+    |
+
+Candidate Discovery
+
+    |
+
+Candidate Normalization
+
+    |
+
+Candidate Ranking
+
+    |
+
+Identity Resolution
+
+    |
+
+Metadata Merge
+
+    |
+
+ComicInfo.xml Update
+
+
+Next Development Phase:
+
+Candidate ranking intelligence.
+
+Goals:
+
+- Improve confidence scoring
+- Add identifier weighting
+- Support provider confidence
+- Prepare automatic vs review decisions
+
