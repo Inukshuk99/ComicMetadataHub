@@ -130,9 +130,35 @@ class MetadataMerger:
                         )
 
 
+
                 elif rule == "review":
 
                     decision["requires_review"] = True
+
+
+
+                elif rule == "prefer_complete":
+
+                    existing_length = len(
+                        str(existing.get(field, ""))
+                    )
+
+                    incoming_length = len(
+                        str(value)
+                    )
+
+
+                    if incoming_length > existing_length:
+
+                        decision["suggested_source"] = source
+
+                        decision["suggested_value"] = value
+
+                    else:
+
+                        decision["suggested_source"] = "Existing"
+
+                        decision["suggested_value"] = existing.get(field)
 
 
 
