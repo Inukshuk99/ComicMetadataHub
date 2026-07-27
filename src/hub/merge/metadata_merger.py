@@ -42,11 +42,14 @@ class MetadataMerger:
             conflicts
         """
 
+
         merged = dict(
             existing
         )
 
+
         conflicts = []
+
 
 
         for field, value in incoming.items():
@@ -79,6 +82,9 @@ class MetadataMerger:
                     result["conflict"]
                 )
 
+
+            # preserve rule information
+            # for future decision handling
 
         return {
             "data": merged,
