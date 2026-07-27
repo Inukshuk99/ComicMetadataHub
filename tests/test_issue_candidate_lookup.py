@@ -68,13 +68,32 @@ def test_issue_candidate_lookup():
     )
 
 
-    assert len(results) == 1
+    #
+    # CandidateFinder discovers.
+    # It does not resolve the issue.
+    #
+
+    assert len(results) == 3
 
 
     assert (
-        results[0]["issue_number"]
+        results[0]["title"]
         ==
-        "1"
+        "Batman"
+    )
+
+
+    assert (
+        results[1]["issue_number"]
+        ==
+        "2"
+    )
+
+
+    assert (
+        results[2]["source"]
+        ==
+        "GCD"
     )
 
 

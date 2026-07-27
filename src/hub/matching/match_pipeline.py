@@ -2,7 +2,8 @@
 ComicMetadataHub Match Pipeline
 
 Coordinates candidate discovery,
-ranking, and identity resolution.
+normalization, ranking,
+and identity resolution.
 """
 
 
@@ -11,6 +12,10 @@ from .candidate_finder import CandidateFinder
 from .candidate_ranker import CandidateRanker
 
 from .identity_resolver import IdentityResolver
+
+from src.hub.normalization.candidate_normalizer import (
+    CandidateNormalizer
+)
 
 
 
@@ -25,6 +30,8 @@ class MatchPipeline:
 
         self.finder = CandidateFinder()
 
+        self.normalizer = CandidateNormalizer()
+
         self.ranker = CandidateRanker()
 
         self.resolver = IdentityResolver()
@@ -37,7 +44,8 @@ class MatchPipeline:
         candidates
     ):
         """
-        Find, rank, and resolve candidates.
+        Find, normalize, rank,
+        and resolve candidates.
         """
 
 
@@ -47,9 +55,14 @@ class MatchPipeline:
         )
 
 
+        normalized = self.normalizer.normalize_many(
+            found
+        )
+
+
         ranked = self.ranker.rank(
             record,
-            found
+            normalized
         )
 
 

@@ -41,7 +41,7 @@ class ProviderImportPipeline:
 
 
         candidates = self.finder.find_provider_candidates(
-            record.get("title")
+            record
         )
 
 

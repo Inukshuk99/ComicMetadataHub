@@ -3,6 +3,10 @@ ComicMetadataHub Candidate Finder
 
 Finds possible comic records from
 provider databases.
+
+Candidate discovery only.
+Final decisions are handled by
+ranking and identity resolution.
 """
 
 
@@ -19,7 +23,7 @@ from src.gcd.database import (
 
 class CandidateFinder:
     """
-    Finds possible comic matches.
+    Finds possible comic candidates.
     """
 
 
@@ -29,28 +33,14 @@ class CandidateFinder:
         record,
         candidates
     ):
+        """
+        Return supplied candidates.
 
-        results = []
+        CandidateFinder does not decide
+        the final match.
+        """
 
-
-        for candidate in candidates:
-
-            if (
-                candidate.get("title")
-                ==
-                record.get("title")
-                and
-                candidate.get("issue_number")
-                ==
-                record.get("issue")
-            ):
-
-                results.append(
-                    candidate
-                )
-
-
-        return results
+        return list(candidates)
 
 
 
@@ -63,22 +53,6 @@ class CandidateFinder:
     ):
         """
         Generic database search helper.
-
-        Supports:
-            search_database(
-                connection,
-                table,
-                value
-            )
-
-        and:
-
-            search_database(
-                connection,
-                table,
-                field,
-                value
-            )
         """
 
 
@@ -148,12 +122,9 @@ class CandidateFinder:
                comicvine_series.id
 
             WHERE comicvine_series.name = ?
-
-            AND comicvine_issues.issue_number = ?
             """,
             (
                 record.get("title"),
-                record.get("issue")
             )
         )
 
@@ -200,12 +171,9 @@ class CandidateFinder:
                gcd_series.id
 
             WHERE gcd_series.name = ?
-
-            AND gcd_issues.issue_number = ?
             """,
             (
                 record.get("title"),
-                record.get("issue")
             )
         )
 
@@ -227,6 +195,10 @@ class CandidateFinder:
         self,
         record
     ):
+        """
+        Collect candidates from providers.
+        """
+
 
         results = []
 

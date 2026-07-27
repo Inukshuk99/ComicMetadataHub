@@ -9,8 +9,7 @@ import os
 
 PROJECT_ROOT = os.path.dirname(
     os.path.dirname(
-        os.path.abspath(__file__)
-    )
+        os.path.abspath(__file__))
 )
 
 
@@ -86,13 +85,25 @@ def test_candidate_provider_search():
     )
 
 
-    assert len(result) == 1
+    #
+    # CandidateFinder discovers.
+    # It does not decide.
+    #
+
+    assert len(result) == 3
 
 
     assert (
         result[0]["source"]
         ==
         "ComicVine"
+    )
+
+
+    assert (
+        result[2]["source"]
+        ==
+        "GCD"
     )
 
 

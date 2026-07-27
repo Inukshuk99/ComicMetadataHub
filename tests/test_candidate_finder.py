@@ -53,7 +53,7 @@ def test_candidate_finder():
 
             "issue_number": "1",
 
-            "source": "ComicVine"
+            "year": 1940
 
         },
 
@@ -63,17 +63,7 @@ def test_candidate_finder():
 
             "issue_number": "2",
 
-            "source": "ComicVine"
-
-        },
-
-        {
-
-            "title": "Superman",
-
-            "issue_number": "1",
-
-            "source": "GCD"
+            "year": 1940
 
         }
 
@@ -86,14 +76,17 @@ def test_candidate_finder():
     )
 
 
-    assert len(results) == 1
+    #
+    # CandidateFinder discovers candidates.
+    # It does not select the winner.
+    #
+
+    assert len(results) == 2
 
 
-    assert (
-        results[0]["issue_number"]
-        ==
-        "1"
-    )
+    assert results[0]["title"] == "Batman"
+
+    assert results[1]["title"] == "Batman"
 
 
     print(
