@@ -11,11 +11,14 @@ class IdentityMatchResult:
     """
 
 
+
     def __init__(
         self,
         matched=False,
         score=0,
-        reasons=None
+        reasons=None,
+        confidence=None,
+        decision=None
     ):
 
         self.matched = matched
@@ -24,21 +27,22 @@ class IdentityMatchResult:
 
         self.reasons = reasons or []
 
+        self.confidence = confidence or "No Match"
+
+        self.decision = decision or "IGNORE"
+
 
 
     def confidence_level(self):
 
-        if self.score >= 100:
-
-            return "Strong Match"
+        return self.confidence
 
 
-        if self.score >= 80:
 
-            return "Possible Match"
+    def action(self):
 
+        return self.decision
 
-        return "No Match"
 
 
 
@@ -175,8 +179,40 @@ class IdentityResolver:
 
 
 
+        if score >= 150:
+
+            confidence = "Strong Match"
+
+            decision = "AUTO_APPLY"
+
+
+
+        elif score >= 100:
+
+            confidence = "Possible Match"
+
+            decision = "REVIEW"
+
+
+
+        else:
+
+            confidence = "No Match"
+
+            decision = "IGNORE"
+
+
+
         return IdentityMatchResult(
+
             matched=score >= 100,
+
             score=score,
-            reasons=reasons
+
+            reasons=reasons,
+
+            confidence=confidence,
+
+            decision=decision
+
         )
