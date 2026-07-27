@@ -437,3 +437,56 @@ The resolver determines confidence, not ownership.
 
 
 ---
+
+---
+
+# Identity Resolver v2B Terminology Update
+
+The matching architecture uses the following terminology:
+
+## Metadata Provider
+
+Defines where metadata evidence originates.
+
+Examples:
+
+- ComicVine
+- GCD
+- League of Comic Geeks
+- Publisher sources
+- ComicMetadataHub
+
+
+## Storage Type
+
+Defines where provider data is stored.
+
+Examples:
+
+- API
+- Local database
+- Imported data
+
+
+Local databases such as:
+
+- localcv.db
+- localgcd.db
+
+are storage implementations of metadata providers.
+
+They are not separate providers.
+
+
+IdentityResolver evaluates provider evidence.
+
+It does not automatically trust one provider over another.
+
+Matching confidence is determined by:
+
+- Identifier agreement
+- Provider agreement
+- Metadata field agreement
+
+---
+
