@@ -305,3 +305,61 @@ Goals:
 - Support provider confidence
 - Prepare automatic vs review decisions
 
+---
+
+# Development Checkpoint
+
+## identity-resolver-v2a-stable
+
+Completed:
+
+- Plugin integration architecture documented
+- Candidate discovery separated from matching decisions
+- Candidate normalization layer added
+- Candidate ranking upgraded to confidence scoring
+- Identity resolver upgraded with confidence decisions
+
+Current matching flow:
+
+Comic Application
+
+    |
+
+Integration Layer
+
+    |
+
+Import Pipeline
+
+    |
+
+Candidate Finder
+
+    |
+
+Candidate Normalizer
+
+    |
+
+Candidate Ranker v2
+
+    |
+
+Identity Resolver v2A
+
+    |
+
+Metadata Merge
+
+
+Next Phase:
+
+Identity Resolver v2B
+
+Planned:
+
+- Provider identifier weighting
+- ComicVine/GCD confidence priority
+- Provider agreement bonuses
+
+---
