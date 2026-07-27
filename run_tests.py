@@ -30,105 +30,55 @@ from tests.test_comicvine import test_comicvine
 from tests.test_gcd import test_gcd
 from tests.test_conflict import test_conflict
 from tests.test_metadata_rules import test_metadata_rules
+from tests.test_metadata_merger import test_metadata_merger
 
 
 
 def main():
 
-    print(
-        "Running startup test..."
-    )
-
+    print("Running startup test...")
     test_startup()
 
-
-    print(
-        "Running database test..."
-    )
-
+    print("Running database test...")
     test_database()
 
-
-    print(
-        "Running model test..."
-    )
-
+    print("Running model test...")
     test_models()
 
-
-    print(
-        "Running importer test..."
-    )
-
+    print("Running importer test...")
     test_importers()
 
-
-    print(
-        "Running archive reader test..."
-    )
-
+    print("Running archive reader test...")
     test_archive_reader()
 
-
-    print(
-        "Running ComicRack reader test..."
-    )
-
+    print("Running ComicRack reader test...")
     test_comicrack_reader()
 
-
-    print(
-        "Running ComicRack mapper test..."
-    )
-
+    print("Running ComicRack mapper test...")
     test_comicrack_mapper()
 
-
-    print(
-        "Running ComicRack importer test..."
-    )
-
+    print("Running ComicRack importer test...")
     test_comicrack_importer()
 
-
-    print(
-        "Running resolver test..."
-    )
-
+    print("Running resolver test...")
     test_resolver()
 
-
-    print(
-        "Running ComicVine provider test..."
-    )
-
+    print("Running ComicVine provider test...")
     test_comicvine()
 
-
-    print(
-        "Running GCD provider test..."
-    )
-
+    print("Running GCD provider test...")
     test_gcd()
 
-
-    print(
-        "Running metadata conflict test..."
-    )
-
+    print("Running metadata conflict test...")
     test_conflict()
 
-
-    print(
-        "Running metadata rules test..."
-    )
-
+    print("Running metadata rules test...")
     test_metadata_rules()
 
+    print("Running metadata merger test...")
+    test_metadata_merger()
 
-    print(
-        "All tests passed."
-    )
+    print("All tests passed.")
 
 
 
