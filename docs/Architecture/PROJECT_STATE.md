@@ -490,3 +490,37 @@ Matching confidence is determined by:
 
 ---
 
+
+---
+
+# Identity Resolver v2B Identifier Model
+
+Identity resolution preserves all known provider identifiers.
+
+Internal storage:
+
+- ComicVine identifier
+- GCD identifier
+- Barcode
+- ISBN
+- Other provider identifiers
+
+Identifiers are not collapsed into a single value.
+
+Primary identifiers are used for:
+
+- User preference
+- Export formatting
+- ComicRack compatibility
+
+All identifiers remain available for:
+
+- Matching
+- Verification
+- Future metadata providers
+
+ComicMetadataHub stores identity internally.
+Export formats identifiers for external applications.
+
+---
+
