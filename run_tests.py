@@ -27,6 +27,7 @@ from tests.test_comicrack_mapper import test_comicrack_mapper
 from tests.test_comicrack_importer import test_comicrack_importer
 from tests.test_resolver import test_resolver
 from tests.test_comicvine import test_comicvine
+from tests.test_gcd import test_gcd
 
 
 
@@ -100,6 +101,13 @@ def main():
     )
 
     test_comicvine()
+
+
+    print(
+        "Running GCD provider test..."
+    )
+
+    test_gcd()
 
 
     print(
