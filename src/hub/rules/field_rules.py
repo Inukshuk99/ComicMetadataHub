@@ -26,6 +26,10 @@ class FieldRules:
 
             "artist": "conflict",
 
+            "creator": "conflict",
+
+            "creators": "conflict",
+
             "summary": "prefer_complete",
 
             "cover": "prefer_quality"
