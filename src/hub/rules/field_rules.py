@@ -32,7 +32,6 @@ class FieldRules:
 
             "summary": "prefer_complete",
 
-            "cover": "prefer_quality"
 
         }
 

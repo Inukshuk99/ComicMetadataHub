@@ -16,6 +16,11 @@ from src.hub.rules.provider_priority import (
 )
 
 
+from src.hub.merge.creator_merger import (
+    CreatorMerger
+)
+
+
 
 class MetadataMerger:
     """
@@ -31,6 +36,8 @@ class MetadataMerger:
         self.rules = MetadataRules()
 
         self.priority = ProviderPriority()
+
+        self.creator_merger = CreatorMerger()
 
 
 
@@ -56,6 +63,27 @@ class MetadataMerger:
 
 
         for field, value in incoming.items():
+
+
+            if field == "creators":
+
+                merged[field] = self.creator_merger.merge(
+                    existing.get(field, []),
+                    value
+                )
+
+
+                decisions.append(
+                    {
+                        "field": field,
+                        "action": "merge",
+                        "rule": "creator_merge"
+                    }
+                )
+
+                continue
+
+
 
             result = self.rules.compare(
                 field,
@@ -176,5 +204,5 @@ class MetadataMerger:
         return {
             "data": merged,
             "conflicts": conflicts,
-            "decisions": decisions
+            "decision": decisions
         }
