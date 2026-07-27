@@ -28,6 +28,7 @@ from tests.test_comicrack_importer import test_comicrack_importer
 from tests.test_resolver import test_resolver
 from tests.test_comicvine import test_comicvine
 from tests.test_gcd import test_gcd
+from tests.test_conflict import test_conflict
 
 
 
@@ -108,6 +109,13 @@ def main():
     )
 
     test_gcd()
+
+
+    print(
+        "Running metadata conflict test..."
+    )
+
+    test_conflict()
 
 
     print(
