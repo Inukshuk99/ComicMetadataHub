@@ -29,6 +29,7 @@ from tests.test_resolver import test_resolver
 from tests.test_comicvine import test_comicvine
 from tests.test_gcd import test_gcd
 from tests.test_conflict import test_conflict
+from tests.test_metadata_rules import test_metadata_rules
 
 
 
@@ -116,6 +117,13 @@ def main():
     )
 
     test_conflict()
+
+
+    print(
+        "Running metadata rules test..."
+    )
+
+    test_metadata_rules()
 
 
     print(
