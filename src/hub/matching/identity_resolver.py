@@ -10,13 +10,12 @@ class IdentityMatchResult:
     Result of identity matching.
     """
 
-
-
     def __init__(
         self,
         matched=False,
         score=0,
         reasons=None,
+        evidence=None,
         confidence=None,
         decision=None
     ):
@@ -26,6 +25,8 @@ class IdentityMatchResult:
         self.score = score
 
         self.reasons = reasons or []
+
+        self.evidence = evidence or {}
 
         self.confidence = confidence or "No Match"
 
@@ -53,8 +54,6 @@ class IdentityResolver:
     represent the same comic.
     """
 
-
-
     def resolve(
         self,
         source,
@@ -65,6 +64,15 @@ class IdentityResolver:
 
         reasons = []
 
+        evidence = {
+
+            "identifiers": [],
+
+            "metadata": [],
+
+            "provider_agreement": False
+
+        }
 
 
         source_ids = source.get(
@@ -77,7 +85,6 @@ class IdentityResolver:
             "identifiers",
             {}
         )
-
 
 
         for provider, identifier in source_ids.items():
@@ -94,6 +101,10 @@ class IdentityResolver:
 
                 reasons.append(
                     f"{provider.title()} identifier match"
+                )
+
+                evidence["identifiers"].append(
+                    provider
                 )
 
 
@@ -113,6 +124,8 @@ class IdentityResolver:
                 "Provider agreement"
             )
 
+            evidence["provider_agreement"] = True
+
 
 
         if (
@@ -127,6 +140,10 @@ class IdentityResolver:
 
             reasons.append(
                 "Publisher match"
+            )
+
+            evidence["metadata"].append(
+                "publisher"
             )
 
 
@@ -145,6 +162,10 @@ class IdentityResolver:
                 "Title match"
             )
 
+            evidence["metadata"].append(
+                "title"
+            )
+
 
 
         if (
@@ -159,6 +180,10 @@ class IdentityResolver:
 
             reasons.append(
                 "Series match"
+            )
+
+            evidence["metadata"].append(
+                "series"
             )
 
 
@@ -177,6 +202,10 @@ class IdentityResolver:
                 "Volume match"
             )
 
+            evidence["metadata"].append(
+                "volume"
+            )
+
 
 
         if (
@@ -193,6 +222,10 @@ class IdentityResolver:
                 "Issue match"
             )
 
+            evidence["metadata"].append(
+                "issue"
+            )
+
 
 
         if (
@@ -207,6 +240,10 @@ class IdentityResolver:
 
             reasons.append(
                 "Edition match"
+            )
+
+            evidence["metadata"].append(
+                "edition"
             )
 
 
@@ -242,6 +279,8 @@ class IdentityResolver:
             score=score,
 
             reasons=reasons,
+
+            evidence=evidence,
 
             confidence=confidence,
 
