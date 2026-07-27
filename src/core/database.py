@@ -11,6 +11,7 @@ from .config import DATABASE_FILE
 from .logger import logger
 
 
+
 def ensure_database_directory():
     """
     Makes sure the database folder exists.
@@ -24,6 +25,7 @@ def ensure_database_directory():
         os.makedirs(directory)
 
 
+
 def get_connection():
     """
     Returns a SQLite database connection.
@@ -32,6 +34,7 @@ def get_connection():
     ensure_database_directory()
 
     try:
+
         connection = sqlite3.connect(
             DATABASE_FILE
         )
@@ -40,13 +43,16 @@ def get_connection():
 
         return connection
 
+
     except Exception as error:
+
         logger.error(
             "Database connection failed: %s",
             error
         )
 
         raise
+
 
 
 def initialize_database():
@@ -59,6 +65,7 @@ def initialize_database():
     cursor = connection.cursor()
 
 
+
     cursor.execute("""
         CREATE TABLE IF NOT EXISTS publishers (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -66,6 +73,7 @@ def initialize_database():
             publisher_type TEXT
         )
     """)
+
 
 
     cursor.execute("""
@@ -77,6 +85,7 @@ def initialize_database():
                 REFERENCES publishers(id)
         )
     """)
+
 
 
     cursor.execute("""
@@ -94,6 +103,7 @@ def initialize_database():
     """)
 
 
+
     cursor.execute("""
         CREATE TABLE IF NOT EXISTS issues (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -108,6 +118,7 @@ def initialize_database():
     """)
 
 
+
     cursor.execute("""
         CREATE TABLE IF NOT EXISTS editions (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -119,6 +130,7 @@ def initialize_database():
                 REFERENCES issues(id)
         )
     """)
+
 
 
     cursor.execute("""
@@ -135,6 +147,7 @@ def initialize_database():
     """)
 
 
+
     cursor.execute("""
         CREATE TABLE IF NOT EXISTS metadata_sources (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -145,8 +158,40 @@ def initialize_database():
     """)
 
 
+
+    cursor.execute("""
+        CREATE TABLE IF NOT EXISTS metadata_values (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            entity_type TEXT NOT NULL,
+            entity_id INTEGER NOT NULL,
+            field_name TEXT NOT NULL,
+            value TEXT,
+            source_id INTEGER,
+            confidence REAL,
+            FOREIGN KEY (source_id)
+                REFERENCES metadata_sources(id)
+        )
+    """)
+
+
+
+    cursor.execute("""
+        CREATE TABLE IF NOT EXISTS metadata_conflicts (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            entity_type TEXT NOT NULL,
+            entity_id INTEGER NOT NULL,
+            field_name TEXT NOT NULL,
+            status TEXT DEFAULT 'Open',
+            selected_source TEXT
+        )
+    """)
+
+
+
     connection.commit()
+
     connection.close()
+
 
 
     logger.info(
