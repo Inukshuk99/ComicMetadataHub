@@ -22,6 +22,31 @@ class CandidateNormalizer:
         ComicMetadataHub matching fields.
         """
 
+
+        identifiers = {}
+
+
+        if candidate.get("comicvine_id"):
+
+            identifiers["comicvine"] = (
+                candidate.get("comicvine_id")
+            )
+
+
+        if candidate.get("gcd_id"):
+
+            identifiers["gcd"] = (
+                candidate.get("gcd_id")
+            )
+
+
+        if candidate.get("identifier"):
+
+            identifiers["unknown"] = (
+                candidate.get("identifier")
+            )
+
+
         return {
 
             "title": candidate.get(
@@ -50,19 +75,17 @@ class CandidateNormalizer:
                 "year"
             ),
 
-            "identifier": candidate.get(
-                "identifier",
+
+            "identifiers": identifiers,
+
+
+            "metadata_provider": candidate.get(
+                "metadata_provider",
                 candidate.get(
-                    "comicvine_id",
-                    candidate.get(
-                        "gcd_id"
-                    )
+                    "source"
                 )
             ),
 
-            "source": candidate.get(
-                "source"
-            ),
 
             "original": candidate
 
