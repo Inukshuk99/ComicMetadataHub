@@ -363,3 +363,77 @@ Planned:
 - Provider agreement bonuses
 
 ---
+---
+
+# Next Development Phase
+
+## Identity Resolver v2B — Provider Intelligence
+
+Status:
+
+Planned
+
+Previous checkpoint:
+
+identity-resolver-v2a-stable
+
+
+Purpose:
+
+Improve identity matching confidence by understanding the reliability of different metadata evidence sources.
+
+
+Current Identity Resolver v2A:
+
+Provides:
+
+- Match score
+- Confidence level
+- Decision state
+- Match reasons
+
+
+Identity Resolver v2B will add:
+
+- Provider identifier weighting
+- ComicVine identifier confidence
+- GCD identifier confidence
+- Provider agreement bonuses
+- Stronger evidence ranking
+
+
+Planned evidence priority:
+
+1. Unique identifiers
+
+   - ComicVine ID
+   - GCD ID
+   - Barcode
+   - ISBN
+
+
+2. Provider agreement
+
+   - Multiple trusted sources matching
+
+
+3. Metadata fields
+
+   - Title
+   - Series
+   - Issue
+   - Volume
+   - Publisher
+   - Year
+
+
+Design rule:
+
+ComicMetadataHub remains the source of truth.
+
+External providers provide evidence.
+
+The resolver determines confidence, not ownership.
+
+
+---
