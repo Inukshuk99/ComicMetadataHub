@@ -26,6 +26,7 @@ from tests.test_comicrack_reader import test_comicrack_reader
 from tests.test_comicrack_mapper import test_comicrack_mapper
 from tests.test_comicrack_importer import test_comicrack_importer
 from tests.test_resolver import test_resolver
+from tests.test_comicvine import test_comicvine
 
 
 
@@ -92,6 +93,13 @@ def main():
     )
 
     test_resolver()
+
+
+    print(
+        "Running ComicVine provider test..."
+    )
+
+    test_comicvine()
 
 
     print(
