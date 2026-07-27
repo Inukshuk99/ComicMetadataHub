@@ -36,19 +36,15 @@ class MetadataMerger:
         """
         Merge incoming metadata into
         existing metadata.
-
-        Returns:
-            merged data
-            conflicts
         """
-
 
         merged = dict(
             existing
         )
 
-
         conflicts = []
+
+        decisions = []
 
 
 
@@ -62,31 +58,61 @@ class MetadataMerger:
             )
 
 
+            rule = result.get(
+                "rule",
+                "default"
+            )
+
+
+
             if result["action"] == "fill":
 
-                merged[field] = (
-                    result["value"]
+                merged[field] = result["value"]
+
+                decisions.append(
+                    {
+                        "field": field,
+                        "action": "fill",
+                        "rule": rule
+                    }
                 )
+
 
 
             elif result["action"] == "accept":
 
-                merged[field] = (
-                    result["value"]
+                merged[field] = result["value"]
+
+                decisions.append(
+                    {
+                        "field": field,
+                        "action": "accept",
+                        "rule": rule
+                    }
                 )
+
 
 
             elif result["action"] == "conflict":
 
+                conflict = result["conflict"]
+
                 conflicts.append(
-                    result["conflict"]
+                    conflict
+                )
+
+                decisions.append(
+                    {
+                        "field": field,
+                        "action": "conflict",
+                        "rule": rule
+                    }
                 )
 
 
-            # preserve rule information
-            # for future decision handling
 
         return {
             "data": merged,
-            "conflicts": conflicts
+            "conflicts": conflicts,
+            "decisions": decisions
         }
