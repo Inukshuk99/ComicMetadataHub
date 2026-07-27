@@ -1,0 +1,97 @@
+<?xml version="1.0"?>
+<ComicInfo xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Title>The Legend of the Batman: Who He Is and How He Came To Be; The Joker</Title>
+  <Series>Batman</Series>
+  <Number>1</Number>
+  <Count>1</Count>
+  <Volume>1940</Volume>
+  <AlternateSeries>xxxx</AlternateSeries>
+  <AlternateNumber>1</AlternateNumber>
+  <StoryArc>xxxxx</StoryArc>
+  <SeriesGroup>xxxxx</SeriesGroup>
+  <AlternateCount>1</AlternateCount>
+  <Summary>The Legend of the Batman: Who He Is and How He Came To Be - One night, while walking home from the theater, the Wayne family is robbed at gunpoint. When Thomas Wayne tries to intervene, he's shot in the chest. To stop her wailing, the criminal shoots Martha as well. The grisly crime is witnessed by the Wayne's only son, Bruce, who swears to avenge their deaths by spending his entire life "warring on all criminals"!The Joker (The Joker's first appearance) - Radio broadcasts are interrupted by a strange voice claiming to be "The Joker". The Joker warns that at precisely midnight he will kill Henry Claridge and steal the valuable Claridge Diamond. That night, true to his prophecy, and despite a police cordon about the man, Henry Claridge falls dead, his face contorted in a devilish grin, and the Claridge Diamond has disappeared, replaced by an imitation. But that is just the beginning of the Joker's murderous crime spree, and as the most precious jewels in the world are stolen one after another, and the body count continues to mount, both the criminal underworld and crime fighters Batman and Robin set their sights on taking the Joker down!Professor Hugo Strange and the Monsters - When Professor Hugo Strange escapes from prison, he and his henchmen promptly kidnap an asylum full of mental patients. Strange experiments on the mad men, turning them into giant man-monsters which he then releases on the streets of Manhattan to wreak havoc. Can Batman defeat both Strange, and his monstrous creations?The Cat (Catwoman's first appearance) - The society pages are abuzz with news of wealthy Mrs. Travers' yacht party. The media reveals that the hostess will be wearing a necklace valued at half a million dollars. Batman figures the party will be the target of every crook in town, but he's preoccupied with another case, so he sends Dick Grayson undercover aboard the yacht as a steward. Grayson discovers a number of suspicious characters aboard, and learns of a plot to steal the necklace by a mysterious character known only as 'The Cat'. But before he can act, the necklace is stolen and then the boat is boarded by still more would-be thieves. Can Batman and Robin stop a ring of heavily armed thieves, and solve the mystery of the Cat?The Joker Returns - Less than two days after his imprisonment, The Joker combines two chemicals, each retrieved from a secret false tooth, to form an explosive compound which he uses to escape. Once on the loose, the Joker resumes his M.O. of pre-announcing his kills via radio, beginning with the Chief of Police. True to his word, at the appointed hour, Police Chief Chalmers is dead. His revenge satisfied, the Joker thereafter returns to his usual murder-robberies, each broadcast by radio in advance, making the police look like fools and enraging and frightening the populace. But Batman has a plan of his own.</Summary>
+  <Notes>Scraped metadata from ComicVine [CVDB105811].</Notes>
+  <Year>1940</Year>
+  <Month>4</Month>
+  <Day>1</Day>
+  <Writer>Bill Finger, Paul Gustavson</Writer>
+  <Penciller>Bob Kane, George Papp, Paul Gustavson, Raymond Perry</Penciller>
+  <Inker>Bob Kane, George Papp, Jerry Robinson, Paul Gustavson, Raymond Perry, Sheldon Moldoff</Inker>
+  <Colorist>Raymond Perry</Colorist>
+  <Letterer>Jerry Robinson</Letterer>
+  <CoverArtist>Bob Kane, Jerry Robinson</CoverArtist>
+  <Editor>Whitney Ellsworth</Editor>
+  <Publisher>DC Comics</Publisher>
+  <Imprint>xxxxx</Imprint>
+  <Genre>xxxxx</Genre>
+  <Web>https://comicvine.gamespot.com/batman-1-the-legend-of-the-batman-who-he-is-and-ho/4000-105811/</Web>
+  <PageCount>54</PageCount>
+  <LanguageISO>en</LanguageISO>
+  <Format>Series</Format>
+  <AgeRating>Mature 17+</AgeRating>
+  <BlackAndWhite>No</BlackAndWhite>
+  <Manga>No</Manga>
+  <Characters>Batman, Brute Nelson, Catwoman, Dick Grayson, Henry Claridge, Hugo Strange, James Gordon, Jay Wilde, Joe Chill, Joker, Judge Drake, Martha Wayne, Thomas Wayne</Characters>
+  <Teams>Batman and Robin, Gotham City Police Department, Monster Men</Teams>
+  <MainCharacterOrTeam>Batman</MainCharacterOrTeam>
+  <Locations>Gotham City, Manhattan, Wayne Manor</Locations>
+  <ScanInformation>xxxxx</ScanInformation>
+  <Tags>CVDB105811</Tags>
+  <Pages>
+    <Page Image="0" ImageSize="116849" ImageWidth="581" ImageHeight="750" Type="FrontCover" />
+    <Page Image="1" ImageSize="116964" ImageWidth="529" ImageHeight="750" />
+    <Page Image="2" ImageSize="148171" ImageWidth="531" ImageHeight="750" />
+    <Page Image="3" ImageSize="119397" ImageWidth="542" ImageHeight="750" />
+    <Page Image="4" ImageSize="165921" ImageWidth="534" ImageHeight="750" />
+    <Page Image="5" ImageSize="151733" ImageWidth="537" ImageHeight="750" />
+    <Page Image="6" ImageSize="164368" ImageWidth="531" ImageHeight="750" />
+    <Page Image="7" ImageSize="166033" ImageWidth="534" ImageHeight="750" />
+    <Page Image="8" ImageSize="157671" ImageWidth="537" ImageHeight="750" />
+    <Page Image="9" ImageSize="153154" ImageWidth="536" ImageHeight="750" />
+    <Page Image="10" ImageSize="160901" ImageWidth="531" ImageHeight="750" />
+    <Page Image="11" ImageSize="156608" ImageWidth="531" ImageHeight="750" />
+    <Page Image="12" ImageSize="152000" ImageWidth="531" ImageHeight="750" />
+    <Page Image="13" ImageSize="154180" ImageWidth="551" ImageHeight="750" />
+    <Page Image="14" ImageSize="144762" ImageWidth="528" ImageHeight="750" />
+    <Page Image="15" ImageSize="163330" ImageWidth="545" ImageHeight="750" />
+    <Page Image="16" ImageSize="142752" ImageWidth="554" ImageHeight="750" />
+    <Page Image="17" ImageSize="168743" ImageWidth="543" ImageHeight="750" />
+    <Page Image="18" ImageSize="155415" ImageWidth="537" ImageHeight="750" />
+    <Page Image="19" ImageSize="161059" ImageWidth="548" ImageHeight="750" />
+    <Page Image="20" ImageSize="156842" ImageWidth="533" ImageHeight="750" />
+    <Page Image="21" ImageSize="164846" ImageWidth="538" ImageHeight="750" />
+    <Page Image="22" ImageSize="149846" ImageWidth="533" ImageHeight="750" />
+    <Page Image="23" ImageSize="146678" ImageWidth="534" ImageHeight="750" />
+    <Page Image="24" ImageSize="161987" ImageWidth="533" ImageHeight="750" />
+    <Page Image="25" ImageSize="144700" ImageWidth="538" ImageHeight="750" />
+    <Page Image="26" ImageSize="141680" ImageWidth="536" ImageHeight="750" />
+    <Page Image="27" ImageSize="139683" ImageWidth="542" ImageHeight="750" />
+    <Page Image="28" ImageSize="148080" ImageWidth="538" ImageHeight="750" />
+    <Page Image="29" ImageSize="137665" ImageWidth="543" ImageHeight="750" />
+    <Page Image="30" ImageSize="142691" ImageWidth="534" ImageHeight="750" />
+    <Page Image="31" ImageSize="162817" ImageWidth="536" ImageHeight="750" />
+    <Page Image="32" ImageSize="154891" ImageWidth="532" ImageHeight="750" />
+    <Page Image="33" ImageSize="144373" ImageWidth="534" ImageHeight="750" />
+    <Page Image="34" ImageSize="156800" ImageWidth="533" ImageHeight="750" />
+    <Page Image="35" ImageSize="138627" />
+    <Page Image="36" ImageSize="148544" />
+    <Page Image="37" ImageSize="171420" />
+    <Page Image="38" ImageSize="146159" />
+    <Page Image="39" ImageSize="138339" />
+    <Page Image="40" ImageSize="164035" />
+    <Page Image="41" ImageSize="135158" />
+    <Page Image="42" ImageSize="160843" />
+    <Page Image="43" ImageSize="146429" />
+    <Page Image="44" ImageSize="161680" />
+    <Page Image="45" ImageSize="135666" />
+    <Page Image="46" ImageSize="147657" />
+    <Page Image="47" ImageSize="154142" />
+    <Page Image="48" ImageSize="138672" />
+    <Page Image="49" ImageSize="154673" />
+    <Page Image="50" ImageSize="135773" />
+    <Page Image="51" ImageSize="141225" />
+    <Page Image="52" ImageSize="151851" />
+    <Page Image="53" ImageSize="153124" />
+  </Pages>
+</ComicInfo>

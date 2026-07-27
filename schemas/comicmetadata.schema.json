@@ -1,0 +1,156 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ComicMetadataHub Metadata Schema",
+  "description": "Canonical metadata structure for ComicMetadataHub",
+  "type": "object",
+
+  "properties": {
+    "publisher": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "publisher_type": {
+          "type": "string"
+        }
+      }
+    },
+
+    "title": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        }
+      }
+    },
+
+    "series": {
+      "type": "object",
+      "properties": {
+        "official_name": {
+          "type": "string"
+        },
+        "display_name": {
+          "type": "string"
+        },
+        "volume": {
+          "type": "integer"
+        },
+        "start_year": {
+          "type": "integer"
+        },
+        "end_year": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        }
+      }
+    },
+
+    "issue": {
+      "type": "object",
+      "properties": {
+        "number": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "cover_date": {
+          "type": "string"
+        },
+        "release_date": {
+          "type": "string"
+        }
+      }
+    },
+
+    "edition": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string"
+        },
+        "variant_name": {
+          "type": "string"
+        },
+        "printing": {
+          "type": "integer"
+        }
+      }
+    },
+
+    "file": {
+      "type": "object",
+      "properties": {
+        "filename": {
+          "type": "string"
+        },
+        "path": {
+          "type": "string"
+        },
+        "format": {
+          "type": "string"
+        },
+        "checksum": {
+          "type": "string"
+        }
+      }
+    },
+
+    "creators": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "role": {
+            "type": "string"
+          }
+        }
+      }
+    },
+
+    "characters": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+
+    "covers": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string"
+          },
+          "source": {
+            "type": "string"
+          }
+        }
+      }
+    },
+
+    "sources": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "confidence": {
+            "type": "number"
+          }
+        }
+      }
+    }
+  }
+}
