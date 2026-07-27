@@ -14,6 +14,16 @@ using ComicInfo.xml.
 import xml.etree.ElementTree as ET
 
 
+from src.importers.base_importer import (
+    BaseImporter
+)
+
+
+from src.importers.metadata_result import (
+    MetadataResult
+)
+
+
 from src.importers.comicrack.archive_reader import (
     ComicArchiveReader
 )
@@ -30,10 +40,13 @@ from src.importers.comicrack.mapper import (
 
 
 
-class ComicRackImporter:
+class ComicRackImporter(BaseImporter):
     """
     ComicRack compatible importer.
     """
+
+
+    name = "ComicRack"
 
 
 
@@ -100,6 +113,12 @@ class ComicRackImporter:
         )
 
 
-        return self.mapper.map(
+        metadata = self.mapper.map(
             comicinfo
+        )
+
+
+        return MetadataResult(
+            source="ComicRack",
+            data=metadata
         )

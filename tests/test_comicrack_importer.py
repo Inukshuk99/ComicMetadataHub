@@ -80,17 +80,25 @@ def test_comicrack_importer():
     )
 
 
-    assert result["title"] == (
+    assert result.success
+
+
+    assert result.source == (
+        "ComicRack"
+    )
+
+
+    assert result.data["title"] == (
         "Batman Test Issue"
     )
 
 
-    assert result["series"] == (
+    assert result.data["series"] == (
         "Batman"
     )
 
 
-    assert result["identifiers"]["comicvine"] == (
+    assert result.data["identifiers"]["comicvine"] == (
         "105811"
     )
 
