@@ -16,6 +16,11 @@ from src.hub.rules.provider_priority import (
 )
 
 
+from src.hub.rules.field_rules import (
+    FieldRules
+)
+
+
 
 class MetadataRules:
     """
@@ -28,6 +33,8 @@ class MetadataRules:
     ):
 
         self.priority = ProviderPriority()
+
+        self.fields = FieldRules()
 
 
 
@@ -43,12 +50,18 @@ class MetadataRules:
         against existing metadata.
         """
 
+        field_rule = self.fields.get_rule(
+            field_name
+        )
+
+
         # Empty existing value
         if not existing_value:
 
             return {
                 "action": "fill",
-                "value": incoming_value
+                "value": incoming_value,
+                "rule": field_rule
             }
 
 
@@ -58,7 +71,8 @@ class MetadataRules:
 
             return {
                 "action": "accept",
-                "value": existing_value
+                "value": existing_value,
+                "rule": field_rule
             }
 
 
@@ -84,6 +98,7 @@ class MetadataRules:
         return {
             "action": "conflict",
             "conflict": conflict,
+            "rule": field_rule,
             "source_priority": self.priority.get_priority(
                 source
             )
