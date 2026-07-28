@@ -47,25 +47,45 @@ class CandidateNormalizer:
             )
 
 
+        provider = candidate.get(
+            "source",
+            candidate.get(
+                "metadata_provider",
+                ""
+            )
+        )
+
+
+        issue = candidate.get(
+            "issue",
+            candidate.get(
+                "issue_number"
+            )
+        )
+
+
+        title = candidate.get(
+            "title"
+        )
+
+
+        if not title:
+
+            title = candidate.get(
+                "series"
+            )
+
+
         return {
 
-            "title": candidate.get(
-                "title"
-            ),
+            "title": title,
 
             "series": candidate.get(
                 "series",
-                candidate.get(
-                    "title"
-                )
+                title
             ),
 
-            "issue": candidate.get(
-                "issue",
-                candidate.get(
-                    "issue_number"
-                )
-            ),
+            "issue": issue,
 
             "publisher": candidate.get(
                 "publisher"
@@ -75,16 +95,10 @@ class CandidateNormalizer:
                 "year"
             ),
 
-
             "identifiers": identifiers,
 
 
-            "metadata_provider": candidate.get(
-                "metadata_provider",
-                candidate.get(
-                    "source"
-                )
-            ),
+            "metadata_provider": provider,
 
 
             "original": candidate
