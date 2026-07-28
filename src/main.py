@@ -2,11 +2,17 @@
 ComicMetadataHub Application Entry Point
 """
 
-from core.logger import logger
-from core.database import initialize_database
 
-from importers.comicrack_importer import ComicRackImporter
-from services.metadata_service import MetadataService
+from core.logger import logger
+
+from services.metadata_service import (
+    MetadataService
+)
+
+from importers.comicrack.importer import (
+    ComicRackImporter
+)
+
 
 
 def main():
@@ -16,27 +22,19 @@ def main():
     )
 
 
-    # Initialize database
-    initialize_database()
-
-
-    # Create metadata service
     service = MetadataService()
 
 
-    # Register import sources
     comicrack = ComicRackImporter()
+
 
     service.register_source(
         comicrack
     )
 
 
-    comicrack.connect()
-
-
     logger.info(
-        "ComicMetadataHub initialized successfully"
+        "ComicMetadataHub initialized"
     )
 
 
@@ -45,5 +43,7 @@ def main():
     )
 
 
+
 if __name__ == "__main__":
+
     main()
