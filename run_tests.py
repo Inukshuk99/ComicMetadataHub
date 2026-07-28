@@ -50,6 +50,7 @@ from tests.test_candidate_finder import test_candidate_finder
 from tests.test_candidate_provider_search import test_candidate_provider_search
 from tests.test_candidate_database_search import test_candidate_database_search
 from tests.test_provider_candidate_lookup import test_provider_candidate_lookup
+from tests.test_provider_issue_lookup import test_provider_issue_lookup
 from tests.test_issue_candidate_lookup import test_issue_candidate_lookup
 
 from tests.test_candidate_ranker import test_candidate_ranker
