@@ -21,12 +21,6 @@ class ComicVineMapper:
         Convert ComicVine series record.
         """
 
-        publisher = record.get(
-            "publisher",
-            {}
-        )
-
-
         return {
 
             "type": "series",
@@ -45,19 +39,7 @@ class ComicVineMapper:
 
             "end_year": record.get(
                 "end_year"
-            ),
-
-            "publisher": {
-
-                "comicvine_id": publisher.get(
-                    "id"
-                ),
-
-                "name": publisher.get(
-                    "name"
-                )
-
-            }
+            )
 
         }
 
