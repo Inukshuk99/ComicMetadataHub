@@ -2,76 +2,113 @@
 
 **Universal Offline Comic Metadata Platform**
 
-ComicMetadataHub is an open-source metadata engine designed to provide a **single canonical metadata model** for comic book collections.
+ComicMetadataHub is an open-source metadata engine designed to provide a single canonical metadata model for comic book collections.
 
-Its purpose is to act as a universal metadata hub between comic management applications, online metadata providers, and portable ComicInfo.xml files.
+It acts as a universal metadata hub between comic applications, metadata providers, and portable ComicInfo.xml files.
 
 ---
 
 ## Vision
 
-Instead of every application maintaining its own metadata workflow, ComicMetadataHub provides one consistent engine that can:
+ComicMetadataHub provides one consistent engine that can:
 
 - Read and write ComicInfo.xml
 - Merge metadata from multiple providers
-- Store and maintain local metadata databases
-- Keep metadata portable between applications
+- Maintain local metadata databases
+- Keep metadata portable
 - Operate offline whenever possible
 
 ---
 
-## Supported Applications (Planned)
+## Supported Applications
+
+Current:
 
 - ComicRack CE
-- ComicTagger
+- ComicInfo.xml compatible applications
+
+Providers:
+
 - Comic Vine
 - Grand Comics Database (GCD)
 
-Future providers may include:
+Planned:
 
-- League of Comic Geeks
-- Metron
+- ComicTagger
 - Additional community providers
 
 ---
 
 ## Core Design Goals
 
-- ✅ Local-first architecture
-- ✅ ComicInfo.xml as the canonical metadata format
-- ✅ Universal provider architecture
-- ✅ KISS (Keep It Simple)
-- ✅ Open Source (MIT)
-- ✅ Community driven
-- ✅ Extensible plugin architecture
+- Local-first architecture
+- ComicInfo.xml as canonical metadata format
+- Universal provider architecture
+- KISS design
+- Open source
+- Community driven
+- Extensible architecture
 
 ---
 
 ## Repository Structure
 
-```
 src/
-    comicrack/
-    comictagger/
+
+    core/
+    hub/
+    importers/
+        comicrack/
+
+    exporters/
+        comicrack/
+
     comicvine/
     gcd/
-    hub/
-    resolver/
-    shared/
+    services/
+    updaters/
+
+tests/
 
 docs/
-tests/
-resources/
-```
 
 ---
 
 ## Current Project Status
 
+Foundation milestone complete.
+
+Completed:
+
+- ComicRack import pipeline
+- ComicInfo.xml reader/writer
+- Metadata mapping
+- Matching engine
+- Identity resolution
+- Merge foundation
+- ComicVine database layer
+- GCD database layer
+- Provider updater framework
+- Repository cleanup
+
+Testing:
+
+- 51 tests passing
+
 See:
 
 - PROJECT_STATUS.md
 - docs/MeetingNotes/SESSION_LOG.md
+
+---
+
+## Next Development Phase
+
+- ComicVine API integration
+- GCD integration
+- CBR/RAR support
+- Batch processing
+- Production metadata workflows
 
 ---
 
