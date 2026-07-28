@@ -3,7 +3,8 @@ ComicMetadataHub Match Pipeline
 
 Coordinates candidate discovery,
 normalization, ranking,
-and identity resolution.
+identity resolution,
+and metadata merging.
 """
 
 
@@ -15,6 +16,10 @@ from .identity_resolver import IdentityResolver
 
 from src.hub.normalization.candidate_normalizer import (
     CandidateNormalizer
+)
+
+from src.hub.merge.metadata_merger import (
+    MetadataMerger
 )
 
 
@@ -36,6 +41,8 @@ class MatchPipeline:
 
         self.resolver = IdentityResolver()
 
+        self.merger = MetadataMerger()
+
 
 
     def match(
@@ -45,7 +52,7 @@ class MatchPipeline:
     ):
         """
         Find, normalize, rank,
-        and resolve candidates.
+        resolve, and merge candidates.
         """
 
 
@@ -71,17 +78,34 @@ class MatchPipeline:
 
         for score, candidate in ranked:
 
+
             result = self.resolver.resolve(
                 record,
                 candidate
             )
 
 
+            merged = None
+
+
+            if result.decision == "AUTO_APPLY":
+
+                merged = self.merger.merge(
+                    record,
+                    candidate,
+                    candidate.get(
+                        "metadata_provider",
+                        "Unknown"
+                    )
+                )
+
+
             results.append(
                 {
                     "candidate": candidate,
                     "rank_score": score,
-                    "match": result
+                    "match": result,
+                    "merged": merged
                 }
             )
 
