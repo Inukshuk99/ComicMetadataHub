@@ -21,7 +21,7 @@ sys.path.insert(
 
 from src.core.logger import logger
 from src.services.metadata_service import MetadataService
-from src.importers.comicrack_importer import ComicRackImporter
+from src.importers.comicrack.importer import ComicRackImporter
 
 
 def test_startup():
