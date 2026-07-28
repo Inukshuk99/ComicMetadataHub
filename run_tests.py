@@ -60,6 +60,7 @@ from tests.test_match_importer import test_match_importer
 from tests.test_comic_import_pipeline import test_comic_import_pipeline
 
 from tests.test_provider_import_pipeline import test_provider_import_pipeline
+from tests.test_comicinfo_writer import test_comicinfo_writer
 
 
 
