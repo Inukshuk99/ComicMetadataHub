@@ -95,3 +95,50 @@ class ComicVineClient:
             return json.loads(
                 response.read()
             )
+
+
+
+    def search(
+        self,
+        query,
+        resource
+    ):
+        """
+        Search ComicVine resources.
+        """
+
+        return self.request(
+            "/search/",
+            {
+                "query": query,
+                "resources": resource
+            }
+        )
+
+
+
+    def get_volume(
+        self,
+        volume_id
+    ):
+        """
+        Retrieve a ComicVine volume.
+        """
+
+        return self.request(
+            "/volume/4025-" + str(volume_id) + "/"
+        )
+
+
+
+    def get_issue(
+        self,
+        issue_id
+    ):
+        """
+        Retrieve a ComicVine issue.
+        """
+
+        return self.request(
+            "/issue/4000-" + str(issue_id) + "/"
+        )

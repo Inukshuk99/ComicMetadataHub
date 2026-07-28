@@ -93,15 +93,79 @@ class ComicVineProvider:
 
 
 
+    def search_series(
+        self,
+        query
+    ):
+        """
+        Search ComicVine volumes.
+        """
+
+        response = self.client.search(
+            query,
+            "volume"
+        )
+
+
+        results = []
+
+
+        for record in response.get(
+            "results",
+            []
+        ):
+
+            results.append(
+                self.mapper.map_series(
+                    record
+                )
+            )
+
+
+        return results
+
+
+
+    def search_issues(
+        self,
+        query
+    ):
+        """
+        Search ComicVine issues.
+        """
+
+        response = self.client.search(
+            query,
+            "issue"
+        )
+
+
+        results = []
+
+
+        for record in response.get(
+            "results",
+            []
+        ):
+
+            results.append(
+                self.mapper.map_issue(
+                    record
+                )
+            )
+
+
+        return results
+
+
+
     def get_series(
         self,
         series_id
     ):
 
-        response = self.client.request(
-            "/volume/4025-"
-            + str(series_id)
-            + "/"
+        response = self.client.get_volume(
+            series_id
         )
 
 
@@ -119,10 +183,8 @@ class ComicVineProvider:
         issue_id
     ):
 
-        response = self.client.request(
-            "/issue/4000-"
-            + str(issue_id)
-            + "/"
+        response = self.client.get_issue(
+            issue_id
         )
 
 
