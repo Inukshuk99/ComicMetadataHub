@@ -216,3 +216,8 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# ComicMetadataHub runtime data
+data/Database/*.db
+data/Cache/
+data/Logs/
