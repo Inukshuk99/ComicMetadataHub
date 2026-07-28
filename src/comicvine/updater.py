@@ -48,46 +48,78 @@ class ComicVineUpdater(
         connection = get_connection()
 
 
-        sql = """
-            INSERT OR REPLACE INTO comicvine_series
-            (
-                comicvine_id,
-                name,
-                start_year,
-                end_year
-            )
-
-            VALUES
-            (
-                ?,
-                ?,
-                ?,
-                ?
-            )
-        """
+        count = 0
 
 
-        values = []
+        cursor = connection.cursor()
 
 
         for record in records:
 
-            values.append(
-                (
-                    record.get("comicvine_id"),
-                    record.get("name"),
-                    record.get("start_year"),
-                    record.get("end_year")
+
+            if record.get("type") == "issue":
+
+                cursor.execute(
+                    """
+                    INSERT OR REPLACE INTO comicvine_issues
+                    (
+                        comicvine_id,
+                        series_id,
+                        issue_number,
+                        title,
+                        year
+                    )
+                    VALUES
+                    (
+                        ?,
+                        ?,
+                        ?,
+                        ?,
+                        ?
+                    )
+                    """,
+                    (
+                        record.get("comicvine_id"),
+                        record.get("series_id"),
+                        record.get("issue_number"),
+                        record.get("title"),
+                        record.get("year")
+                    )
                 )
-            )
 
 
-        count = self.insert_records(
-            connection,
-            sql,
-            values
-        )
+            else:
 
+                cursor.execute(
+                    """
+                    INSERT OR REPLACE INTO comicvine_series
+                    (
+                        comicvine_id,
+                        name,
+                        start_year,
+                        end_year
+                    )
+                    VALUES
+                    (
+                        ?,
+                        ?,
+                        ?,
+                        ?
+                    )
+                    """,
+                    (
+                        record.get("comicvine_id"),
+                        record.get("name"),
+                        record.get("start_year"),
+                        record.get("end_year")
+                    )
+                )
+
+
+            count += 1
+
+
+        connection.commit()
 
         connection.close()
 
